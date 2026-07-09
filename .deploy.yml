@@ -2,7 +2,7 @@ project: hashmaker
 type: docker-build
 
 version:
-  source: git-commit
+  source: git-tag
 
 build:
   context: "."
