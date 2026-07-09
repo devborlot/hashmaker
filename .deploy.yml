@@ -1,6 +1,9 @@
 project: hashmaker
 type: docker-build
 
+version:
+  source: git-commit
+
 build:
   context: "."
   dockerfile: Dockerfile
