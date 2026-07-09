@@ -11,11 +11,10 @@ build:
 port: 8080
 
 healthcheck:
-  mode: http
-  path: /
-  port: 8080
+  tcp: 8080
   interval: 10s
   timeout: 5s
+  retries: 3
 
 environment:
   PORT: "8080"
