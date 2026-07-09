@@ -1,0 +1,27 @@
+project: hashmaker
+type: docker-build
+
+build:
+  context: "."
+  dockerfile: Dockerfile
+
+ports:
+  - "8080:8080"
+
+healthcheck:
+  mode: http
+  path: /
+  port: 8080
+  interval: 10s
+  timeout: 5s
+
+environment:
+  PORT: "8080"
+
+resources:
+  memory: 256m
+  cpus: "0.5"
+
+instances:
+  production:
+    domain: hashmaker.mtc.academy

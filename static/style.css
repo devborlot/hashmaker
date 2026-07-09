@@ -1,0 +1,141 @@
+:root {
+  --bg: #0a0a0a;
+  --line: #1a1a1a;
+  --fg: #bbb;
+  --dim: #555;
+  --hi: #ddd;
+  --err: #a44;
+  --mono: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font: 11px/1.25 var(--mono);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.app {
+  max-width: 100%;
+  padding: 6px 10px;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2px;
+}
+
+.prompt {
+  color: var(--dim);
+  flex-shrink: 0;
+}
+
+.bar input {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 4px;
+  background: #111;
+  border: 1px solid var(--line);
+  color: var(--hi);
+  font: inherit;
+  height: 20px;
+}
+
+.bar input:focus { outline: 1px solid #333; }
+
+.btn {
+  padding: 1px 6px;
+  height: 20px;
+  background: #111;
+  border: 1px solid var(--line);
+  color: var(--dim);
+  font: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn:hover { color: var(--fg); border-color: #333; }
+
+.rows { display: flex; flex-direction: column; }
+
+.row {
+  padding: 3px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.row-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 16px;
+}
+
+.name {
+  width: 88px;
+  flex-shrink: 0;
+  color: var(--dim);
+  text-transform: lowercase;
+}
+
+.cfg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.cfg-k {
+  color: var(--dim);
+}
+
+.cfg-v {
+  width: 42px;
+  padding: 0 3px;
+  height: 16px;
+  background: #111;
+  border: 1px solid var(--line);
+  color: var(--fg);
+  font: inherit;
+}
+
+.cfg-v:focus { outline: 1px solid #333; }
+
+.cfg-empty { color: var(--line); user-select: none; }
+
+.cp {
+  margin-left: auto;
+  padding: 0 4px;
+  background: none;
+  border: none;
+  color: var(--dim);
+  font: inherit;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.cp:hover:not(:disabled) { color: var(--hi); }
+.cp:disabled { opacity: 0.25; cursor: default; }
+.cp.ok { color: #6a6; }
+
+.out {
+  margin: 1px 0 0 88px;
+  font: inherit;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--hi);
+  min-height: 14px;
+}
+
+.out.empty { color: var(--line); }
+.out.loading { color: var(--dim); }
+.out.error { color: var(--err); }
+
+@media (max-width: 480px) {
+  .name { width: 72px; }
+  .out { margin-left: 72px; }
+}
